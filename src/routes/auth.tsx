@@ -33,7 +33,7 @@ function AuthPage() {
   const [busy, setBusy] = useState(false)
 
   useEffect(() => {
-    if (!loading && user) navigate({ to: isAdmin ? '/admin' : '/account', replace: true })
+    if (!loading && user) navigate({ to: '/account', replace: true })
   }, [user, isAdmin, loading, navigate])
 
   const google = async () => {

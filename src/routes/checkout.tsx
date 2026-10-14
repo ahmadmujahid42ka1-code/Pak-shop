@@ -59,7 +59,7 @@ function Checkout() {
 
   const submit = async (e: React.FormEvent) => {
     e.preventDefault()
-    if (!/^[0-9+\s-]{10,15}$/.test(form.phone)) return toast.error('Sahi phone number likhein')
+    if (!/^[0-9+\s-]{10,15}$/.test(form.phone)) { toast.error('Sahi phone number likhein'); return }
     setBusy(true)
     const id = crypto.randomUUID()
     const items: Array<OrderItem> = shop.items.map((i) => ({ productId: i.productId, name: i.product.name, price: i.product.price, quantity: i.quantity, options: i.options, image: i.product.image }))
