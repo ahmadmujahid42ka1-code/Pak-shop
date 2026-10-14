@@ -5,6 +5,7 @@ import { store } from '@/config/store'
 import { categories } from '@/data/catalog'
 import { useShop } from '@/lib/shop'
 import { Logo } from './Logo'
+import { useAuth } from '@/lib/auth'
 
 function SearchForm({ onDone }: { onDone?: () => void }) {
   const navigate = useNavigate()
@@ -76,10 +77,9 @@ export function Header() {
             <SearchForm />
           </div>
           <nav aria-label="Account and cart" className="ml-auto flex items-center gap-1 md:ml-0">
-            <span className={`${iconBtn} hidden cursor-help sm:flex`} title="Customer accounts are launching soon — guest shopping works today">
+            <Link to={user ? '/account' : '/auth'} className={iconBtn} aria-label={user ? 'My account' : 'Sign in'}>
               <User size={21} />
-              <span className="sr-only">Account (coming soon)</span>
-            </span>
+            </Link>
             <Link to="/wishlist" className={iconBtn} aria-label={`Wishlist (${wishlist.length} items)`}>
               <Heart size={21} />
               {wishlist.length > 0 && <span className={badge}>{wishlist.length}</span>}

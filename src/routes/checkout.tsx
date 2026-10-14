@@ -80,7 +80,7 @@ function Checkout() {
       coupon: shop.coupon?.code ?? null,
     })
     setBusy(false)
-    if (error) return toast.error('Order place nahi ho saka. Dobara koshish karein.')
+    if (error) { toast.error('Order place nahi ho saka. Dobara koshish karein.'); return }
     shop.clearCart()
     setDone(id.slice(0, 8).toUpperCase())
   }
