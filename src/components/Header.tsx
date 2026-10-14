@@ -59,6 +59,7 @@ function AnnouncementBar() {
 
 export function Header() {
   const { count, wishlist, setDrawerOpen } = useShop()
+  const { user } = useAuth()
   const [menuOpen, setMenuOpen] = useState(false)
 
   const iconBtn = 'relative flex h-10 w-10 items-center justify-center rounded-full text-ink transition hover:bg-sand'
