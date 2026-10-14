@@ -47,7 +47,7 @@ export async function loadLiveData() {
     supabase.from('site_settings').select('data').eq('id', 1).maybeSingle(),
   ])
   if (p.data?.length) products.splice(0, products.length, ...p.data.map(rowToProduct))
-  if (r.data)
+  if (r.data?.length)
     reviews.splice(
       0,
       reviews.length,
