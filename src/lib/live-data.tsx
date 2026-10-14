@@ -46,7 +46,7 @@ export async function loadLiveData() {
     supabase.from('reviews').select('*').eq('hidden', false).order('created_at', { ascending: false }),
     supabase.from('site_settings').select('data').eq('id', 1).maybeSingle(),
   ])
-  if (p.data) products.splice(0, products.length, ...p.data.map(rowToProduct))
+  if (p.data?.length) products.splice(0, products.length, ...p.data.map(rowToProduct))
   if (r.data)
     reviews.splice(
       0,
